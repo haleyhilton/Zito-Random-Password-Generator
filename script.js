@@ -1,45 +1,35 @@
-//make variables that store lower and uppercase letters
-function generatePassword(){
 
-const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=";
-var passwordLength = 16;
-let password = "";
+//Assignment Code + Event Listener to prompt questions when button pushed
+document.querySelector("#generate").addEventListener("click", writePassword);
+// Various Arrays 
+const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "?"];
+const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-for (var i=0; i<passwordLength; i++){
-  var randomNumber = Math.floor(Math.random() * chars.length);
-  password += chars.substring(randomNumber,randomNumber+1);
-  }
+// Variable Declaration 
+var confirmLength = "";
+var confirmSymbols;
+var confirmNumericCharacter;
+var confirmUpper;
+var confirmLower;
 
-document.getElementById("password").value = password
-}
+// How many characters prompt
+function generatePassword() {
+  var confirmLength = (prompt("How many characters would you like your password to contain? Choose any length between 8 - 128 characters"));
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-var generatePassword = function() {
-  //return a randomized password when you run this password
+  // Loop if answer is not between 8 - 128
+  while(confirmLength <= 8 || confirmLength >= 128) {
+      alert("Oops - let's try again! Please choose a number between 8 and 128 characters");
+      var confirmLength = (prompt("How many characters would you like your password to contain? Choose any length between 8 - 128 character."));
+      } 
+    //  console.log(confirmLength);
+      
 }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
-
-
-// Add event listener to generate button
-const btn = document.querySelector('.btn');
-generateBtn.addEventListener("click", writePassword);
-
-
-
-//Assignment Code + Event Listener to prompt questions when button pushed
-document.querySelector("#generate").addEventListener("click", writePassword);
-// Various Arrays 
-var number = ["0123456789"];
-var specialChar = ["!%&,*+-.<>?~"];
-var alphaLower = ["abcdefghijklmnopqrstuvwxyz"];
-var alphaUpper = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-
