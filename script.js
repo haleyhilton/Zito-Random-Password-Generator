@@ -25,7 +25,7 @@ function generatePassword() {
       var confirmLower = confirm("Click OK to include lowercase letters");
       var confirmUpper = confirm("Click OK to include uppercase letters");
       
-      // If no parameters are chosen
+      // If no character parameters are chosen
       while(confirmUpper === false && confirmLower === false && confirmSymbols === false && confirmNumbers === false) {
         alert("You must choose at least one parameter");
         confirmSymbols = confirm("Click OK to include symbols");
